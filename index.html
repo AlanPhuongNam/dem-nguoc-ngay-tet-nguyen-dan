@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đếm Ngược Ngày Thi</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: white;
+      background:
+        radial-gradient(ellipse at top, #233b69 0%, transparent 60%),
+        linear-gradient(135deg, #080e20, #101c36);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 850px;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 9px 16px;
+      border: 1px solid #52658b;
+      border-radius: 30px;
+      color: #c3d4ff;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 6vw, 58px);
+      margin: 25px 0 12px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      color: #b8c5df;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 40px 0 30px;
+    }
+
+    .time-box {
+      padding: 26px 8px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(174, 197, 255, 0.2);
+      border-radius: 18px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .number {
+      font-size: clamp(30px, 6vw, 54px);
+      font-weight: bold;
+      color: #8bb8ff;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .label {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #c5d1e8;
+      letter-spacing: 1px;
+    }
+
+    .message {
+      padding: 22px;
+      border-radius: 16px;
+      background: rgba(113, 151, 255, 0.09);
+      color: #d9e4ff;
+      line-height: 1.8;
+    }
+
+    .footer {
+      margin-top: 28px;
+      font-size: 12px;
+      color: #8595b4;
+    }
+
+    @media (max-width: 520px) {
+      .timer {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin: 28px 0;
+      }
+
+      .time-box {
+        padding: 22px 5px;
+      }
+
+      .label {
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="container">
+    <div class="tag">YOUR JOURNEY STARTS NOW</div>
+
+    <h1>Đếm Ngược Ngày Thi</h1>
+
+    <p class="subtitle">
+      Mỗi ngày cố gắng một chút,<br>
+      tương lai sẽ tiến gần hơn một chút.
+    </p>
+
+    <div class="timer">
+      <div class="time-box">
+        <div class="number" id="days">000</div>
+        <div class="label">NGÀY</div>
+      </div>
+
+      <div class="time-box">
+        <div class="number" id="hours">00</div>
+        <div class="label">GIỜ</div>
+      </div>
+
+      <div class="time-box">
+        <div class="number" id="minutes">00</div>
+        <div class="label">PHÚT</div>
+      </div>
+
+      <div class="time-box">
+        <div class="number" id="seconds">00</div>
+        <div class="label">GIÂY</div>
+      </div>
+    </div>
+
+    <div class="message" id="message">
+      Hãy tập trung vào mục tiêu của bạn.
+      Một ngày nỗ lực hôm nay sẽ tạo nên khác biệt ngày mai!
+    </div>
+
+    <div class="footer">
+      COUNTDOWN TO YOUR DREAMS · 2026–2027
+    </div>
+  </main>
+
+  <script>
+    // Sửa ngày giờ bên dưới thành thời điểm thi của bạn.
+    // Ví dụ: ngày 10/06/2027 lúc 07:30 sáng.
+    const examDate = new Date("2027-06-10T07:30:00+07:00");
+
+    function updateCountdown() {
+      const now = new Date();
+      const difference = examDate.getTime() - now.getTime();
+
+      if (difference <= 0) {
+        document.getElementById("days").textContent = "000";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+        document.getElementById("message").textContent =
+          "Chúc bạn hoàn thành kỳ thi thật tốt!";
+        return;
+      }
+
+      const totalSeconds = Math.floor(difference / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+
+      document.getElementById("days").textContent =
+        String(days).padStart(3, "0");
+      document.getElementById("hours").textContent =
+        String(hours).padStart(2, "0");
+      document.getElementById("minutes").textContent =
+        String(minutes).padStart(2, "0");
+      document.getElementById("seconds").textContent =
+        String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
