@@ -226,6 +226,7 @@
   </main>
 
   <script>
+    // 1. Đếm ngược
     // Sửa ngày giờ bên dưới thành thời điểm thi của bạn.
     // Ví dụ: ngày 25/11/2026 lúc 07:30 sáng.
     const examDate = new Date("2026-11-25T07:30:00+07:00");
@@ -262,7 +263,7 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
-    // 1. Ngân hàng câu nói & Tự động đổi mỗi 10 giây
+    // 2. Ngân hàng câu nói & Tự động đổi mỗi 10 giây
     const quotes = [
       "Mỗi ngày cố gắng một chút, tương lai sẽ tiến gần hơn một chút.",
       "Kỷ luật là cầu nối giữa mục tiêu và thành tựu.",
@@ -287,7 +288,7 @@
 
     setInterval(changeQuote, 10000);
     
-    // 2. Logic tự động phát hiện độ sáng ảnh nền để đổi màu chữ/khung
+    // 3. Logic tự động phát hiện độ sáng ảnh nền để đổi màu chữ/khung
     function autoAdjustContrast(imageSrc) {
       const img = new Image();
       img.src = imageSrc;
