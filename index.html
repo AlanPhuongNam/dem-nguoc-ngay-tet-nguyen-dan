@@ -49,9 +49,22 @@
     }
 
     .subtitle {
-      color: #b8c5df;
-      font-size: 17px;
-      line-height: 1.7;
+      display: inline-block;
+      margin: 15px auto 0;
+      padding: 12px 24px;
+      background: rgba(0, 0, 0, 0.3); /* Khung nền mờ */
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #dbeafe;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 90%;
+      /* Hiệu ứng chuyển động mờ dần khi đổi câu */
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .timer {
@@ -117,10 +130,15 @@
     }
 
     body.light-mode .subtitle {
-      color: #1f2937;
-      text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.65);
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #1e293b;
     }
-
+   /* Class hỗ trợ ẩn câu cũ trước khi hiện câu mới */
+    .subtitle.fade-out {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
     body.light-mode .time-box {
       background: rgba(255, 255, 255, 0.65); /* Khung kính mờ sáng */
       border: 1px solid rgba(0, 0, 0, 0.12);
@@ -244,6 +262,31 @@
 
     updateCountdown();
     setInterval(updateCountdown, 1000);
+    // 1. Ngân hàng câu nói & Tự động đổi mỗi 10 giây
+    const quotes = [
+      "Mỗi ngày cố gắng một chút, tương lai sẽ tiến gần hơn một chút.",
+      "Kỷ luật là cầu nối giữa mục tiêu và thành tựu.",
+      "Đừng để áp lực làm mờ đi lý do bạn bắt đầu.",
+      "Chiến thắng bản thân của ngày hôm qua là chiến thắng vĩ đại nhất.",
+      "Giọt mồ hôi rơi trên trang sách hôm nay là nụ cười rạng rỡ ngày mai.",
+      "Chặng đường này có thể mệt mỏi, nhưng đích đến chắc chắn xứng đáng.",
+      "Hãy kiên trì, viên ngọc nào cũng cần qua nhiều lần mài giũa mới sáng."
+    ];
+
+    let quoteIndex = 0;
+    const quoteElement = document.getElementById("quote");
+
+    function changeQuote() {
+      quoteElement.classList.add("fade-out");
+      setTimeout(() => {
+        quoteIndex = (quoteIndex + 1) % quotes.length;
+        quoteElement.textContent = quotes[quoteIndex];
+        quoteElement.classList.remove("fade-out");
+      }, 500);
+    }
+
+    setInterval(changeQuote, 10000);
+    
     // 2. Logic tự động phát hiện độ sáng ảnh nền để đổi màu chữ/khung
     function autoAdjustContrast(imageSrc) {
       const img = new Image();
