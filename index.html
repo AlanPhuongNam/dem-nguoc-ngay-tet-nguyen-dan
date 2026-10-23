@@ -191,13 +191,13 @@
     <!-- Khung hiển thị câu nói tự đổi -->
     <div>
     <p class="subtitle" id="quote">
-      Mỗi ngày cố gắng một chút, tương lai sẽ tiến gần hơn một chút.
+      Muốn tiến bộ thì phải học - Chủ tịch Hồ Chí Minh
     </p>
     </div>
     
     <div class="timer">
       <div class="time-box">
-        <div class="number" id="days">000</div>
+        <div class="number" id="days">00</div>
         <div class="label">NGÀY</div>
       </div>
 
@@ -254,7 +254,7 @@
       const seconds = totalSeconds % 60;
 
       document.getElementById("days").textContent =
-        String(days).padStart(3, "0");
+        String(days);
       document.getElementById("hours").textContent =
         String(hours).padStart(2, "0");
       document.getElementById("minutes").textContent =
@@ -267,13 +267,13 @@
     setInterval(updateCountdown, 1000);
     // 2. Ngân hàng câu nói & Tự động đổi mỗi 10 giây
     const quotes = [
-      "Mỗi ngày cố gắng một chút, tương lai sẽ tiến gần hơn một chút.",
-      "Kỷ luật là cầu nối giữa mục tiêu và thành tựu.",
-      "Đừng để áp lực làm mờ đi lý do bạn bắt đầu.",
-      "Chiến thắng bản thân của ngày hôm qua là chiến thắng vĩ đại nhất.",
-      "Giọt mồ hôi rơi trên trang sách hôm nay là nụ cười rạng rỡ ngày mai.",
-      "Chặng đường này có thể mệt mỏi, nhưng đích đến chắc chắn xứng đáng.",
-      "Hãy kiên trì, viên ngọc nào cũng cần qua nhiều lần mài giũa mới sáng."
+      "Muốn tiến bộ thì phải học - Chủ tịch Hồ Chí Minh",
+      "Hãy học hỏi như bạn sẽ sống mãi mãi và sống như bạn sẽ chết ngay mai - Mahatma Gandhi ",
+      "Giáo dục là vũ khí mạnh nhất mà người ta có thể sử dụng để thay đổi cả thế giới - Nelson Mandela",
+      "Học tập là trải nghiệm. Còn tất cả mọi thứ chỉ là thông tin - Albert Einstein",
+      "Học tập không bao giờ tàn phệ trí tuệ / Người học học cả đời - Leonardo da Vinci",
+      "Học, học nữa, học mãi - Lê-nin",
+      "The beautiful thing about learning is that no one can take it away from you - Anonymous"
     ];
 
     let quoteIndex = 0;
