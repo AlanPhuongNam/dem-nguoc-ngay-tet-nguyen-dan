@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đếm Ngược Ngày Thi Khảo Sát THPTQG Lần 1</title>
+  
+  <title>Đếm Ngược Tết Nguyên Đán 2027 – Còn Bao Nhiêu Ngày Đến Tết?</title>
+  
+  <meta name="description"
+        content="Đếm ngược Tết Nguyên Đán 2027 theo thời gian thực.
+        Xem còn bao nhiêu ngày, giờ, phút, giây đến Tết
+        và đón giao thừa năm Đinh Mùi.">
 
+  <meta name="robots" content="index, follow">
+  
   <style>
     * {
       box-sizing: border-box;
@@ -186,12 +194,25 @@
   <main class="container">
     <div class="tag">Ngày thi: 25/11/2026</div>
 
-    <h1>Đếm Ngược Ngày Thi Khảo Sát THPTQG Lần 1</h1>
+    <h1>Đếm ngược Tết Nguyên Đán 2027</h1>
+    <p>
+      Bạn muốn biết còn bao nhiêu ngày nữa đến Tết?
+      Đồng hồ đếm ngược Tết Nguyên Đán 2027 giúp bạn
+      theo dõi chính xác số ngày, giờ, phút và giây
+      còn lại đến thời khắc năm mới.
+    </p>
 
+    <h2>Tết Nguyên Đán 2027 vào ngày nào?</h2>
+
+     <p>
+       Mùng 1 Tết Âm lịch năm 2027 rơi vào ngày
+       6 tháng 2 năm 2027 theo dương lịch.
+       Hãy cùng đếm ngược đến Tết Đinh Mùi!
+     </p>
     <!-- Khung hiển thị câu nói tự đổi -->
     <div>
     <p class="subtitle" id="quote">
-      Muốn tiến bộ thì phải học - Chủ tịch Hồ Chí Minh
+      Tân xuân đến – Phúc lộc đầy
     </p>
     </div>
     
@@ -218,12 +239,11 @@
     </div>
 
     <div class="message" id="message">
-      Hãy tập trung vào mục tiêu của bạn.
-      Một ngày nỗ lực hôm nay sẽ tạo nên khác biệt ngày mai!
+      Chúc mừng năm mới!
     </div>
 
     <div class="footer">
-      Thi tốt nhaaaaaa!!!
+      Happy Lunar New Year!!!
     </div>
   </main>
 
@@ -231,7 +251,7 @@
     // 1. Đếm ngược
     // Sửa ngày giờ bên dưới thành thời điểm thi của bạn.
     // Ví dụ: ngày 25/11/2026 lúc 07:30 sáng.
-    const examDate = new Date("2026-11-25T07:30:00+07:00");
+    const examDate = new Date("2027-02-06T00:00:00+07:00");
 
     function updateCountdown() {
       const now = new Date();
@@ -243,7 +263,7 @@
         document.getElementById("minutes").textContent = "00";
         document.getElementById("seconds").textContent = "00";
         document.getElementById("message").textContent =
-          "Chúc bạn hoàn thành kỳ thi thật tốt!";
+          "Chúc bạn năm mới hạnh phúc và nhiều may mắn!";
         return;
       }
 
@@ -267,13 +287,13 @@
     setInterval(updateCountdown, 1000);
     // 2. Ngân hàng câu nói & Tự động đổi mỗi 10 giây
     const quotes = [
-      "Muốn tiến bộ thì phải học - Chủ tịch Hồ Chí Minh",
-      "Hãy học hỏi như bạn sẽ sống mãi mãi và sống như bạn sẽ chết ngay mai - Mahatma Gandhi ",
-      "Giáo dục là vũ khí mạnh nhất mà người ta có thể sử dụng để thay đổi cả thế giới - Nelson Mandela",
-      "Học tập là trải nghiệm. Còn tất cả mọi thứ chỉ là thông tin - Albert Einstein",
-      "Học tập không bao giờ tàn phệ trí tuệ / Người học học cả đời - Leonardo da Vinci",
-      "Học, học nữa, học mãi - Lê-nin",
-      "The beautiful thing about learning is that no one can take it away from you - Anonymous"
+      "Tân xuân đến – Phúc lộc đầy",
+      "Tết an vui – Xuân thịnh vượng",
+      "Lộc phát tài – Xuân đắc lợi",
+      "Gia an khang – Xuân phú quý",
+      "Xuân hạnh phúc – Tết bình an",
+      "Cung hỷ phát tài – Tấn tài tấn lộc",
+      "Năm mới xuân sang – Hạnh phúc mênh mang"
     ];
 
     let quoteIndex = 0;
